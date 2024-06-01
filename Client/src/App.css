@@ -1,0 +1,257 @@
+html,
+body {
+  margin: 0 0;
+  height: 100%;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  background-color: #10162f;
+}
+
+main {
+  padding: 20px;
+  margin: 0 auto;
+  background-color: #10162f;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 60px 60px 60px;
+  border-radius: 0.7rem;
+  background-color: white;
+}
+
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header a.logo img {
+  width: 3rem;
+  padding: 3px 0 0 3px;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.logo {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+}
+
+header nav {
+  display: flex;
+  font-weight: bold;
+  gap: 25px;
+  align-items: center;
+  padding-right: 2%;
+  transition: transform 0.3s;
+  font-size: x-large;
+}
+header nav a:hover {
+  transform: scale(1.1);
+}
+
+div.logout-btn {
+  display: block;
+  background-color: white;
+  border-radius: 1px solid black;
+}
+
+img {
+  max-width: 100%;
+}
+
+div .post {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  padding: 2.3%;
+  width: 75%;
+  margin: 0 auto 1.5rem;
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 15px;
+  background-color: white;
+}
+
+@media screen and (min-width: 768px) {
+  div.post {
+    grid-template-columns: 0.8fr 1.2fr;
+    width: 50%;
+  }
+}
+
+div.post div.text h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+div.post p.info {
+  margin: 0;
+  color: #555;
+  font-size: 0.7rem;
+  padding-top: 1%;
+  display: flex;
+  gap: 0.4rem;
+}
+
+div.post p.info a.author {
+  text-decoration: none;
+
+  color: #555;
+}
+
+div.post p.summary {
+  line-height: 1.4rem;
+  font-size: 0.9rem;
+}
+/* *************LOGIN AND REGISTER CSS************** */
+
+div.index-page {
+  background-color: #10162f;
+}
+
+/* *************LOGIN AND REGISTER CSS************** */
+
+div#register,
+div#login {
+  margin-top: 130px;
+}
+form.login-form,
+div#register form {
+  width: 35%;
+}
+
+div.container.align-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form.login-form label,
+form.login-form input,
+div#register label,
+div#register input,
+form#post label,
+form#post input {
+  display: block;
+  margin: 0.6rem 0;
+  padding: 0.4rem;
+  font-weight: 500;
+  width: 100%;
+  max-width: 96%;
+}
+label {
+  color: white;
+}
+input {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+}
+
+form button {
+  padding: 0.6rem;
+  width: 0 auto;
+  margin: 1rem;
+  background-color: #f0ebe3;
+  font-size: medium;
+  font-weight: 600;
+  border: 3px solid black;
+}
+
+form button:hover {
+  background-color: rgb(255, 255, 148);
+  color: black;
+  font-weight: 600;
+  transition-duration: 0.2s;
+}
+
+.link-logout {
+  border: 2px solid #10162f;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: large;
+}
+
+h2.page-title {
+  display: block;
+  max-width: 13rem;
+  text-align: center;
+  background-color: #1db954;
+  color: white;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* *************CREATE-POST CSS************** */
+
+.react-quill {
+  width: 100%;
+  margin-top: 1rem;
+  background-color: white;
+}
+
+div.post div.text a {
+  text-decoration: none;
+}
+div.post div.text h2 {
+  color: rgb(44, 44, 44);
+}
+
+/* *************POST-PAGE CSS************** */
+div.post-page {
+  background-color: white;
+  width: 75%;
+  margin: auto;
+  padding: 1% 5%;
+  border-radius: 2rem;
+}
+
+div.post-page div.image {
+  max-height: 500px;
+  display: flex;
+  overflow: hidden;
+}
+
+div.post-page div.image img {
+  object-fit: cover;
+  object-position: center center;
+  margin-top: 0.5%;
+  width: 100%;
+}
+
+div.post-page h1 {
+  text-align: center;
+  margin-bottom: 1%;
+}
+
+div.post-page time {
+  display: block;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+div.post-page div.author {
+  text-align: center;
+}
+
+div.author {
+  text-decoration: overline;
+  font-weight: bold;
+}
+
+div.content {
+  line-height: 2rem;
+}
+
+a.edit-btn {
+  width: 5%;
+  border-radius: 4px;
+  align-items: center;
+}
+
+a.edit-btn svg {
+  width: 2rem;
+}

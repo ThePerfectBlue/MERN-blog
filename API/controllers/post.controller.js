@@ -5,9 +5,9 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 export const createPost = async (req, res) => {
   const { title, summary, content } = req.body;
-  const localFilePath = req.file?.path;
+  const fileBuffer = req.file?.buffer;
 
-  const cloudinaryFileUrl = await uploadOnCloudinary(localFilePath);
+  const cloudinaryFileUrl = await uploadOnCloudinary(fileBuffer);
 
   try {
     const newPost = await Post.create({
@@ -84,12 +84,12 @@ export const fetchPostPage = async (req, res) => {
 export const editPost = async (req, res) => {
   const { id } = req.params;
   const { title, summary, content } = req.body;
-  const localFilePath = req.file?.path;
+  const fileBuffer = req.file?.buffer;
 
   try {
     let cloudinaryFileUrl;
-    if (localFilePath) {
-      cloudinaryFileUrl = await uploadOnCloudinary(localFilePath);
+    if (fileBuffer) {
+      cloudinaryFileUrl = await uploadOnCloudinary(fileBuffer);
     }
 
     const oldUser = await Post.findById(id);

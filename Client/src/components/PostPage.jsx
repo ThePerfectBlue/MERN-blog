@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { format } from "date-fns";
 import { UserContext } from "../contexts/userContext";
+import { baseurl } from "../../baseurl";
 
 const PostPage = () => {
   const [postInfo, setPostInfo] = useState(null);
@@ -12,9 +13,7 @@ const PostPage = () => {
   useEffect(() => {
     const fetchPostPage = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/v1/post/${id}`
-        );
+        const response = await axios.get(`${baseurl}/api/v1/post/${id}`);
         if (response) {
           setPostInfo(response.data.post);
         }

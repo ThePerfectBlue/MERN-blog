@@ -3,6 +3,7 @@ import Editor from "./Editor";
 import { useParams, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
+import { baseurl } from "../../baseurl";
 
 const EditPost = () => {
   const [title, setTitle] = useState("");
@@ -16,9 +17,7 @@ const EditPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/v1/post/${id}`
-        );
+        const response = await axios.get(`${baseurl}/api/v1/post/${id}`);
         const postInfo = response.data.post;
         setTitle(postInfo.title);
         setSummary(postInfo.summary);
@@ -43,7 +42,7 @@ const EditPost = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:3000/api/v1/post/edit/${id}`,
+        `${baseurl}/api/v1/post/edit/${id}`,
         data,
         {
           withCredentials: true,

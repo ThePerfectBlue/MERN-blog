@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Post from "./Post";
 import axios from "axios";
+import { baseurl } from "../../baseurl";
 
 const IndexPage = () => {
   const [posts, setPosts] = useState([]);
@@ -8,9 +9,7 @@ const IndexPage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:3000/api/v1/post/posts"
-        );
+        const response = await axios.get(`${baseurl}/api/v1/post/posts`);
 
         if (response.status === 200) {
           setPosts(response.data.allPosts);

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
+import { baseurl } from "../../baseurl";
 
 const Header = () => {
   const { user, setUser } = useContext(UserContext);
@@ -9,12 +10,9 @@ const Header = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:3000/api/v1/user/profile",
-          {
-            withCredentials: true,
-          }
-        );
+        const response = await axios.get(`${baseurl}/api/v1/user/profile`, {
+          withCredentials: true,
+        });
 
         setUser(response.data.user);
       } catch (error) {
@@ -28,7 +26,7 @@ const Header = () => {
   const logout = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/user/logout",
+        `${baseurl}/api/v1/user/logout`,
         {},
         {
           withCredentials: true,

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Editor from "./Editor";
+import { baseurl } from "../../baseurl";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -21,13 +22,9 @@ const CreatePost = () => {
 
       console.log("data", data);
 
-      const response = await axios.post(
-        "http://localhost:3000/api/v1/post/create",
-        data,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post(`${baseurl}/api/v1/post/create`, data, {
+        withCredentials: true,
+      });
       if (response.status === 201) {
         console.log("response at frontend", response);
         setRedirect(true);

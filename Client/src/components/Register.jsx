@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { baseurl } from "../../baseurl";
 
 const Register = () => {
   const initialData = {
@@ -26,7 +27,7 @@ const Register = () => {
     try {
       // axios request
       const response = await axios.post(
-        "http://localhost:3000/api/v1/user/register",
+        `${baseurl}/api/v1/user/register`,
         newData
       );
 

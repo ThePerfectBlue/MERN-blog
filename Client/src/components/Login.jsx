@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
+import { baseurl } from "../../baseurl";
 
 const Login = () => {
   const initialData = {
@@ -25,7 +26,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/user/login",
+        `${baseurl}/api/v1/user/login`,
         newData,
         { withCredentials: true }
       );

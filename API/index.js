@@ -11,7 +11,7 @@ const app = express();
 // Example configuration to allow specific headers
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: process.env.VERCEL_DOMAIN,
   credentials: true, // If you need to include cookies in request's header
 };
 

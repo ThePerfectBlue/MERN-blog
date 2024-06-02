@@ -255,3 +255,13 @@ a.edit-btn {
 a.edit-btn svg {
   width: 2rem;
 }
+
+div.loading-img {
+  display: flex;
+  color: white;
+  font-size: 5rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  height: 90vh;
+}

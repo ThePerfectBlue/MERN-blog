@@ -25,14 +25,14 @@ const PostPage = () => {
   }, [id]);
 
   if (!postInfo) {
-    return <div>Loading...</div>;
+    return <div className="loading-img">Loading...</div>;
   }
 
   return (
     <div className="post-page">
       <h1>{postInfo.title}</h1>
       <div className="author">by @{postInfo.author.username}</div>
-      {user._id === postInfo.author._id && (
+      {user && user._id === postInfo.author._id && (
         <div className="edit-row">
           <Link to={`/edit/${postInfo._id}`} title="Edit" className="edit-btn">
             <svg

@@ -9,12 +9,17 @@ export const createPost = async (req, res) => {
 
   const cloudinaryFileUrl = await uploadOnCloudinary(fileBuffer);
 
+  const secureCloudinaryFileUrl = cloudinaryFileUrl.url.replace(
+    "http://",
+    "https://"
+  );
+
   try {
     const newPost = await Post.create({
       title,
       summary,
       content,
-      avatar: cloudinaryFileUrl?.url || "",
+      avatar: secureCloudinaryFileUrl || "",
       author: req.user._id,
     });
 
@@ -92,6 +97,11 @@ export const editPost = async (req, res) => {
       cloudinaryFileUrl = await uploadOnCloudinary(fileBuffer);
     }
 
+    const secureCloudinaryFileUrl = cloudinaryFileUrl.url.replace(
+      "http://",
+      "https://"
+    );
+
     const oldUser = await Post.findById(id);
 
     const updatedPost = await Post.findByIdAndUpdate(
@@ -100,7 +110,9 @@ export const editPost = async (req, res) => {
         title,
         summary,
         content,
-        avatar: cloudinaryFileUrl ? cloudinaryFileUrl.url : oldUser.avatar,
+        avatar: secureCloudinaryFileUrl
+          ? secureCloudinaryFileUrl
+          : oldUser.avatar,
       },
       { new: true }
     );

@@ -4,7 +4,7 @@ export const verifyJWT = (req, res, next) => {
   const token =
     req.cookies?.accessTokens ||
     req.header("Authorization")?.replace("Bearer ", "");
-
+  console.log(token);
   if (!token) {
     return res.status(401).json({ message: "Unauthorized request" });
   }

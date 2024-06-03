@@ -62,6 +62,7 @@ export const loginUser = async (req, res) => {
       const options = {
         httpOnly: true,
         secure: true,
+        sameSite: "None",
       };
 
       return res
@@ -108,6 +109,7 @@ export const logoutUser = async (req, res) => {
       const options = {
         httpOnly: true,
         secure: true,
+        sameSite: "None",
       };
 
       res.clearCookie("accessTokens", options).status(200).json({

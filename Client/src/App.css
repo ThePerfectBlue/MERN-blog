@@ -269,7 +269,7 @@ div.loading-img {
 p.fetching-posts {
   display: flex;
   color: white;
-  margin-top: 15%;
+  margin: 10% 15% 0 10%;
   justify-content: center;
   font-weight: 400;
   font-size: xx-large;

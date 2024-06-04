@@ -265,3 +265,10 @@ div.loading-img {
   font-weight: 600;
   height: 90vh;
 }
+
+p.fetching-posts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+}

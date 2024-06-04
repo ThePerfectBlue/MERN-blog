@@ -20,8 +20,6 @@ const CreatePost = () => {
       data.set("content", content);
       data.set("avatar", file[0]);
 
-      console.log("data", data);
-
       const response = await axios.post(`${baseurl}/api/v1/post/create`, data, {
         withCredentials: true,
       });

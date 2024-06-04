@@ -46,7 +46,7 @@ const Register = () => {
   };
 
   if (redirect) {
-    <Navigate to={"/login"} />;
+    return <Navigate to={"/login"} />;
   }
   return (
     <div id="register">

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { baseurl } from "../../baseurl";
+import { Navigate } from "react-router-dom";
 
 const Register = () => {
   const initialData = {
@@ -12,6 +13,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [data, setData] = useState(initialData);
+  const [redirect, setRedirect] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,6 +35,7 @@ const Register = () => {
 
       if (response.status === 201) {
         alert("User registered successfully");
+        setRedirect(true);
       }
       console.log("This is the response: ", response);
     } catch (error) {
@@ -42,6 +45,9 @@ const Register = () => {
     }
   };
 
+  if (redirect) {
+    <Navigate to={"/login"} />;
+  }
   return (
     <div id="register">
       <h2 className="page-title">Registration Form</h2>

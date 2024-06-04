@@ -34,8 +34,8 @@ const Register = () => {
       );
 
       if (response.status === 201) {
-        alert("User registered successfully");
         setRedirect(true);
+        alert("User registered successfully");
       }
       console.log("This is the response: ", response);
     } catch (error) {

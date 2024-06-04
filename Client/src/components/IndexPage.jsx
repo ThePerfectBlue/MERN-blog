@@ -7,11 +7,13 @@ const IndexPage = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchPosts = async () => {
       try {
         const response = await axios.get(`${baseurl}/api/v1/post/posts`);
 
-        if (response.status === 200) {
+        if (isMounted && response.status === 200) {
           setPosts(response.data.allPosts);
         }
       } catch (error) {
@@ -20,6 +22,9 @@ const IndexPage = () => {
     };
 
     fetchPosts();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (

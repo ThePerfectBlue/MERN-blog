@@ -92,15 +92,14 @@ export const editPost = async (req, res) => {
   const fileBuffer = req.file?.buffer;
 
   try {
-    let cloudinaryFileUrl;
+    let secureCloudinaryFileUrl;
     if (fileBuffer) {
-      cloudinaryFileUrl = await uploadOnCloudinary(fileBuffer);
+      const cloudinaryFileUrl = await uploadOnCloudinary(fileBuffer);
+      secureCloudinaryFileUrl = cloudinaryFileUrl.url.replace(
+        "http://",
+        "https://"
+      );
     }
-
-    const secureCloudinaryFileUrl = cloudinaryFileUrl.url.replace(
-      "http://",
-      "https://"
-    );
 
     const oldUser = await Post.findById(id);
 

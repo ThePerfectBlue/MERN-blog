@@ -21,7 +21,7 @@ const Header = () => {
     };
 
     fetchProfile();
-  }, [setUser]);
+  }, []);
 
   const logout = async () => {
     try {

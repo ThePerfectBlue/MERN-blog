@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
 import { baseurl } from "../../baseurl";
+import KeepAlive from "../../keep-alive";
 
 const Header = () => {
   const { user, setUser } = useContext(UserContext);
@@ -44,6 +45,7 @@ const Header = () => {
 
   return (
     <header>
+      <KeepAlive />
       <Link to="/" className="logo">
         <img className="logo-img" src="/r.png" alt="logo" />
       </Link>

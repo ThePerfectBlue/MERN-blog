@@ -37,8 +37,8 @@ const IndexPage = () => {
     <div className="index-page">
       {isLoading ? (
         <p className="fetching-posts">
-          Fetching posts, this may take time due to the separate backend
-          deployment
+          Fetching posts..., this may take 20-30 secs for the first time due to
+          cold start
         </p>
       ) : (
         posts.length > 0 &&
